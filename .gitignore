@@ -1,12 +1,7 @@
-
-config/dev.js
-
 node_modules
-
-
 client/node_modules
+
 playground.js
 
-config2/shouldNotAppear.js
-
+config/dev.js
 

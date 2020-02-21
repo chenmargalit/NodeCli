@@ -1,6 +1,7 @@
 node_modules
+client/config/dev.js
 client/node_modules
 
-client/config/dev.js
+
 
 playground.js

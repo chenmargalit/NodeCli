@@ -1,0 +1,26 @@
+language: node_js
+# I dont actually use 8, so if there will be a problem I should probably check this
+node_js":
+  - '8'
+  # operating system for the virtual enviorment. trusty is a linux distribution
+dist: trusty
+services:
+  - mongodb
+  - redis-server
+  # enviorment variables
+env:
+  - NODE_ENV=ci PORT=3000
+cache:
+# Everytime we run travis it will do npm install. To make sure it doesnt re-install the node modules EVERYTIME (as its git ignored, its not in the cloned project) we ask it to cache the initial version. Now it will npm install and if its already installed, it will skip and then take MUCH less time.
+directories:
+  - node_modules
+  - client/node_modules
+# any setup we need for the project to run
+install:
+  - npm install
+  - npm run build
+script:
+  - nohup npm run start &
+  # sleep 3 seconds before u start running tests so the server will have time to set up
+  - sleep 3
+  - npm run test

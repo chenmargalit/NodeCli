@@ -1,0 +1,48 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setup.js"
+    ]
+  },
+  "engines": {
+    "node": "12.14.0",
+    "npm": "6.13.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-jest": "^24.9.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "jest": "^24.9.0",
+    "keygrip": "^1.1.0",
+    "mongoose": "^5.8.10",
+    "nodemon": "^2.0.2",
+    "npm": "^6.13.7",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
+    "puppeteer": "^2.1.1",
+    "redis": "^3.0.2",
+    "safe-buffer": "^5.2.0",
+    "sendgrid": "^5.2.3",
+    "stripe": "^8.8.2",
+    "uuid": "^3.4.0"
+  }
+}
